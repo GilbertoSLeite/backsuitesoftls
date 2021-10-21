@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var debug = require("debug")("login:server");
+var debug = require("debug")("apigateway:server");
 var http = require("http");
 var app = require("../app");
 
@@ -53,4 +53,4 @@ server.on("error", OnError);
 server.on("listening", OnListening);
 
 // eslint-disable-next-line no-console
-console.log("Servidor funcionado");
+console.log("Microserviço API Gateway funcionado na porta: ", port);
