@@ -1,23 +1,19 @@
 const Sequelize = require("sequelize");
-const databaseConfigure = require("./databaseConfigure");
+const dbConfigure = require("./databaseConfigure");
 
-const MakingConnection = new Sequelize(
-  databaseConfigure.DB,
-  databaseConfigure.USER,
-  databaseConfigure.PASSWORD,
+module.exports = new Sequelize(
+  dbConfigure.DB,
+  dbConfigure.USER,
+  dbConfigure.PASSWORD,
   {
-    host: databaseConfigure.HOST,
-    dialect: databaseConfigure.dialect,
+    host: dbConfigure.HOST,
+    dialect: dbConfigure.dialect,
     operatorsAliases: 0,
     pool: {
-      max: databaseConfigure.pool.max,
-      min: databaseConfigure.pool.min,
-      acquire: databaseConfigure.pool.acquire,
-      idle: databaseConfigure.pool.idle,
+      max: dbConfigure.pool.max,
+      min: dbConfigure.pool.min,
+      acquire: dbConfigure.pool.acquire,
+      idle: dbConfigure.pool.idle,
     },
   }
 );
-
-module.exports = {
-  MakingConnection,
-};

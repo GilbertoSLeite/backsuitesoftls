@@ -1,6 +1,6 @@
 module.exports = {
   HOST: "127.0.0.1",
-  DB: "sysfinls",
+  DB: "user_structure",
   USER: "postgres",
   PASSWORD: "postgres",
   dialect: "postgres",

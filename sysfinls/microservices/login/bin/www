@@ -21,7 +21,7 @@ const normalizePort = (val) => {
   return !namedPipe ? namedPort : namedPipe;
 };
 
-const port = normalizePort(process.env.PORT || "6001");
+const port = normalizePort(process.env.PORT || "6003");
 
 app.set("porta", port);
 
@@ -53,4 +53,4 @@ server.on("error", OnError);
 server.on("listening", OnListening);
 
 // eslint-disable-next-line no-console
-console.log("Servidor funcionado");
+console.log("Microserviço Login funcionado na porta: ", port);

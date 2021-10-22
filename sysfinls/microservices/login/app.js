@@ -15,15 +15,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Home Page
-app.get("/", (req, res) => {
-  res.json({
-    message: "Seja bem vindo ao Micro Serviço de Login.",
-  });
-});
-
 // Chamando as Rotas
-require("./interfaces/routes/students/routes_students")(app);
+require("./interfaces/routes/users/routes_users")(app);
 
 // Analisar Cors do Navegador
 app.use(cors(corsOptions));
