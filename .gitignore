@@ -4,6 +4,10 @@
 /node_modules
 /sysfinls/microservices/apiGateway/node_modules/*
 /sysfinls/microservices/login/node_modules/*
+/sysfinls/microservices/home/node_modules/*
+/sysfinls/microservices/apiGateway/node_modules
+/sysfinls/microservices/login/node_modules
+/sysfinls/microservices/home/node_modules
 /.pnp
 .pnp.js
 .eslintrc.js

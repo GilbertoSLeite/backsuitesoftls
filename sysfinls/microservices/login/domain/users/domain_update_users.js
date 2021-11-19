@@ -2,7 +2,6 @@ const { usuarios_ls } = require("../../infrastructure/database");
 
 const UpdateUsersByLogin = async (request, response) => {
   try {
-    console.log(request.params.login);
     const UpUsersLogin = await usuarios_ls.update(
       {
         id: request.body.id,

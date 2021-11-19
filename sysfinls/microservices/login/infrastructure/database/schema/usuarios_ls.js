@@ -1,3 +1,7 @@
+//const { ComparePassword } = require("../../../application/security/password/comparePassword");
+const { HooksBeforeBulkUpdate } = require("../../../application/security/password/hooksBeforeBulkUpdate");
+const { HooksBeforeCreate } = require("../../../application/security/password/hooksBeforeCreate");
+
 module.exports = (sequelize, DataTypes) => {
   const Users = sequelize.define(
     "usuarios_ls",
@@ -65,10 +69,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         comment: "Coluna com o Status do Usuário no Sistema.",
       },
+    },{
+      hooks:{
+        beforeCreate: (usuarios_ls, options) => HooksBeforeCreate(usuarios_ls, options),
+        beforeBulkUpdate: (usuarios_ls, options) => HooksBeforeBulkUpdate(usuarios_ls, options),
+      },
     },
     {
       comment: "Tabela de Cadastro para Login no Sistema.",
     }
   );
+
+ //Users.prototype.comparePassword = ComparePassword(passw, cb);
+
   return Users;
 };

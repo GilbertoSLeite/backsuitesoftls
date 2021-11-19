@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+const app = require('../app');
+const debug = require('debug')('acervoimagem:server');
+const http = require('http');
+
+
+/**
+ * Create HTTP server.
+ */
+ const server = http.createServer(app);
+
+/**
+ * Get port from environment and store in Express.
+ */
+ const normalizePort = (val) => {
+  const port = parseInt(val, 10);
+  const namedPipe = Number.isNaN(port) && val;
+  const namedPort = port >= 0 && port;
+  return !namedPipe ? namedPort : namedPipe;
+};
+
+const port = normalizePort(process.env.PORT || '6004');
+app.set('port', port);
+
+const pipeOrPort = {
+  true: `Pipe ${port}`,
+  false: `Port ${port}`,
+};
+
+const errorCode = {
+  EACCES: `${pipeOrPort[typeof port === "string"]} requer privilégios.`,
+  EADDRINUSE: `${pipeOrPort[typeof port === "string"]} já se encontra em uso.`,
+};
+
+const OnError = (error) => {
+  const messageError =
+    error.syscall !== "listen" ? error : errorCode[error.code];
+  // eslint-disable-next-line no-console
+  console.log(messageError);
+};
+
+const OnListening = () => {
+  const addr = server.address();
+  const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
+  debug(`Listening on ${bind}`);
+};
+
+server.listen(port);
+server.on("error", OnError);
+server.on("listening", OnListening);
+
+// eslint-disable-next-line no-console
+console.log("Microserviço Acervo Imagem funcionado na porta: ", port);

@@ -1,4 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
+  const Users = sequelize.define("usuarios_ls", {
+    name: DataTypes.STRING,
+  });
   const Hierarchy = sequelize.define(
     "hierarquias_ls",
     {
@@ -17,10 +20,21 @@ module.exports = (sequelize, DataTypes) => {
           values: ["R", "Leitura"],
           values: ["U", "Atualiza"],
         }),
-        unique: true,
+        unique: false,
         allowNull: false,
         comment:
           "Coluna com o Tipo de Hierarquia para uso dos Sistemas da LS Consultoria & Sistemas LTDA.",
+      },
+      usuarios_ls_id: {
+        type: DataTypes.BIGINT,
+        references: {
+          model: Users,
+          key: "id",
+          deferrable: DataTypes.Deferrable.INITIALLY_IMMEDIATE,
+        },
+        allowNull: false,
+        unique: true,
+        comment: "A vinculação com a tabela de Usuários e sua definição de Hierarquia para uso do Sistema.",
       },
       hash_hierarquias_ls: {
         type: DataTypes.STRING,
