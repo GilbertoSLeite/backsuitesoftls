@@ -2,12 +2,15 @@
 
 # dependencies
 /node_modules
+/node_modules/*
 /sysfinls/microservices/apiGateway/node_modules/*
 /sysfinls/microservices/login/node_modules/*
 /sysfinls/microservices/home/node_modules/*
 /sysfinls/microservices/apiGateway/node_modules
 /sysfinls/microservices/login/node_modules
 /sysfinls/microservices/home/node_modules
+/backsuitesoftls/acervovirtual/bancoimagens/microsservicos/cadastroimagem/node_modules
+/backsuitesoftls/acervovirtual/bancoimagens/microsservicos/cadastroimagem/node_modules/*
 /.pnp
 .pnp.js
 .eslintrc.js

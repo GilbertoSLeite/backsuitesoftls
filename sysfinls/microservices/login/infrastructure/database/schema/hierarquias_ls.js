@@ -33,7 +33,7 @@ module.exports = (sequelize, DataTypes) => {
           deferrable: DataTypes.Deferrable.INITIALLY_IMMEDIATE,
         },
         allowNull: false,
-        unique: true,
+        unique: false,
         comment: "A vinculação com a tabela de Usuários e sua definição de Hierarquia para uso do Sistema.",
       },
       hash_hierarquias_ls: {

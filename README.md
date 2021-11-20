@@ -20,5 +20,8 @@ O projeto será gerenciado por um API Gateway desenvolvido em NodeJS. O API Gate
 
 ```
 
-
-Mostrando para que serve o token
+### Portas dos Microsserviços
+- 6001 - ApiGateway
+- 6002 - Home
+- 6003 - Login
+- 6004 - Acervo Imagem - Cadastro
