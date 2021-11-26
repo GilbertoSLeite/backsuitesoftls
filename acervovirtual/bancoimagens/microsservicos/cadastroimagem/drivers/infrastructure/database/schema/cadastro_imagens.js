@@ -15,6 +15,12 @@ module.exports = ( sequelize, DataTypes ) => {
       allowNull: false,
       comment: "Coluna destinado a registrar o nome da imagem no sistema."
     },
+    nome_arquivo:{
+      type: DataTypes.STRING(85),
+      unique: false,
+      allowNull: false,
+      comment: "Coluna destinado a registrar o nome do arquivo imagem baixado no sistema."
+    },
     titulo_imagem:{
       type: DataTypes.STRING(85),
       unique: false,

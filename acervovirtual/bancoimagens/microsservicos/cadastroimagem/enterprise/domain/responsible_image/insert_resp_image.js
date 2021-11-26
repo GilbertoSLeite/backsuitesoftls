@@ -1,4 +1,4 @@
-const { responsavel_imagens }  = require('../../drivers/infrastructure/database');
+const { responsavel_imagens }  = require('../../../drivers/infrastructure/database');
 
 const InsertRespImage = async ( request, response ) => {
   try {

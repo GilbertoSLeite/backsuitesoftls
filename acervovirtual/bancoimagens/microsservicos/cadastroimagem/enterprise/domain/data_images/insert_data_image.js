@@ -1,4 +1,4 @@
-const { dados_imagens }  = require('../../drivers/infrastructure/database');
+const { dados_imagens }  = require('../../../drivers/infrastructure/database');
 
 const InsertDataImage = async ( request, response ) => {
   try {
