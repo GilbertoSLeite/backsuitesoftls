@@ -1,0 +1,1 @@
+module.exports = NullNameFile = (name) => (!name ? true : false);
