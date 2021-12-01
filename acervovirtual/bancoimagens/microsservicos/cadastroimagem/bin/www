@@ -7,8 +7,18 @@
 var app = require('../app');
 var debug = require('debug')('cadastroimagem:server');
 var http = require('http');
+const redis = require('redis');
 
 const server = http.createServer(app);
+
+const ronin = require('ronin-server');
+const mocks = require('ronin-mocks');
+
+const serverRonin = ronin.server()
+
+serverRonin.use('/', mocks.server(serverRonin.Router(), false, true))
+serverRonin.start();
+
 
 /**
  * Get port from environment and store in Express.
@@ -51,6 +61,14 @@ const OnListening = () => {
 server.listen(port);
 server.on("error", OnError);
 server.on("listening", OnListening);
+
+
+const client = redis.createClient();
+
+client.on('connect', function () {
+  console.log('O serviço redis está conectado!');
+});
+
 
 // eslint-disable-next-line no-console
 console.log("Microserviço Login funcionado na porta: ", port);

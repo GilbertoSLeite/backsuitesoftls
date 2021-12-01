@@ -9,6 +9,7 @@ O Sistema financeiro é um sistem base e básico, de gestão de clientes, contra
 - ProstgreSQL(Banco de Dados de Minha Segurança)
 - SequelizeJS
 - Eslint(Para padronização do código)
+- Docker
 
 ## Base do Projeto
 
